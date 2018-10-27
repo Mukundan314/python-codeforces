@@ -15,5 +15,5 @@ setup(
     license='MIT',
     keywords='codeforces',
     url='https://github.com/Mukundan314/python-codeforces',
-    packages=['codeforces']
+    packages=find_packages()
 )
