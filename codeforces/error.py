@@ -1,3 +1,5 @@
+__all__ = ['CodeforcesAPIError']
+
 class CodeforcesAPIError(Exception):
     def __init__(self, comment, method, args):
         self.comment = comment
