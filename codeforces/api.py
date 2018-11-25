@@ -1,13 +1,16 @@
-import time
-import os
-import json
-import random
+"""
+Functions to call the codeforces api
+"""
 import hashlib
-import urllib.request
+import json
+import os
+import random
+import time
 import urllib.error
 import urllib.parse
-from . import error
+import urllib.request
 
+from . import error
 
 __all__ = ['call']
 
@@ -24,7 +27,7 @@ def __generate_api_sig(method, args, secret):
 
 
 def call(method, key=None, secret=None, **kargs):
-    """call a Codeforces API method"""
+    """Call a Codeforces API method"""
     args = kargs.copy()
 
     if (key is not None) and (secret is not None):
@@ -42,8 +45,11 @@ def call(method, key=None, secret=None, **kargs):
         if err.code == 400:
             data = json.loads(err.read())
         elif err.code == 404:
-            data = {'status': 'FAILED', 'comment': "%s: No such method" % method}
-        elif (err.code in (429, 503)):
+            data = {
+                'status': 'FAILED',
+                'comment': "%s: No such method" % method
+            }
+        elif err.code in (429, 503):
             time.sleep(1)
             return call(method, key, secret, **kargs)
         else:
