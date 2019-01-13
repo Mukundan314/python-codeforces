@@ -15,5 +15,6 @@ setup(
     license='MIT',
     keywords='codeforces',
     url='https://github.com/Mukundan314/python-codeforces',
-    packages=find_packages()
+    extras_requires={ 'docs': ['sphinx', 'sphinx_rtd_theme'] },
+    packages=find_packages(exclude=['docs'])
 )
