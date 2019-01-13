@@ -27,7 +27,24 @@ def __generate_api_sig(method, args, secret):
 
 
 def call(method, key=None, secret=None, **kargs):
-    """Call a Codeforces API method"""
+    """
+    Call a Codeforces API method
+
+    Parameters
+    ----------
+    method: str
+        Name of method to call, list of all methods can be found at
+        https://codeforces.com/api/help.
+    key: str, optional
+        Your api key (needed for authorized calls)
+    secret: str, optional
+        Secret for your api key.
+
+    Returns
+    -------
+    json
+        Returns a python object containing the results of the api call.
+    """
     args = kargs.copy()
 
     if (key is not None) and (secret is not None):
