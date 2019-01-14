@@ -11,6 +11,7 @@ Welcome to python-codeforces's documentation!
    :caption: Contents:
 
    usage/quickstart
+   api
 
 
 Indices and tables
