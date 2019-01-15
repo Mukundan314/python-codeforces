@@ -10,6 +10,12 @@ api
 .. automodule:: codeforces.api
    :members:
 
+problem
+^^^^^^^
+
+.. automodule:: codeforces.problem
+   :members:
+
 error
 ^^^^^
 
