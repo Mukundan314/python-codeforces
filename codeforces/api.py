@@ -26,7 +26,7 @@ def __generate_api_sig(method, args, secret):
     ).hexdigest()
 
 
-def call(method, key=None, secret=None, **kargs):
+def call(method, key=None, secret=None, **kwargs):
     """
     Call a Codeforces API method
 
@@ -39,13 +39,15 @@ def call(method, key=None, secret=None, **kargs):
         Your api key (needed for authorized calls)
     secret: str, optional
         Secret for your api key.
+    **kwargs
+        Arguments for the api call
 
     Returns
     -------
-    json
-        Returns a python object containing the results of the api call.
+    any
+        A python object containing the results of the api call.
     """
-    args = kargs.copy()
+    args = kwargs.copy()
 
     if (key is not None) and (secret is not None):
         args['time'] = int(time.time())
