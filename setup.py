@@ -26,5 +26,10 @@ setup(
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7'
-    ]
+    ],
+    project_urls={
+        "Bug Tracker": "https://github.com/Mukundan314/python-codeforces/issues/",
+        "Documentation": "https://python-codeforces.readthedocs.io/en/stable/",
+        "Source": "https://github.com/Mukundan314/python-codeforces"
+    }
 )
