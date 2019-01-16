@@ -4,7 +4,10 @@ import argparse
 import time
 import subprocess
 
+import colorama
 import codeforces
+
+colorama.init(autoreset=True)
 
 parser = argparse.ArgumentParser()
 
@@ -66,11 +69,11 @@ for inp, ans in sample_tests:
 
     print('Time: %d ms\n' % (time_used * 1000))
 
-    print('Input')
+    print(colorama.Style.BRIGHT + 'Input')
     print(inp)
 
-    print("Participant's output")
+    print(colorama.Style.BRIGHT + "Participant's output")
     print(out)
 
-    print("Jury's answer")
+    print(colorama.Style.BRIGHT + "Jury's answer")
     print(ans)
