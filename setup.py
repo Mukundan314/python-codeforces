@@ -6,7 +6,7 @@ with open('README.md') as f:
 
 setup(
     name='python-codeforces',
-    version='0.2.0',
+    version='0.2.1',
     author='Mukundan',
     author_email='mukundan314@gmail.com',
     description='Codeforces API wrapper for python',
