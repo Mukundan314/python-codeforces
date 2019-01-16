@@ -70,11 +70,11 @@ def call(method, key=None, secret=None, **kwargs):
             }
         elif err.code in (429, 503):
             time.sleep(1)
-            return call(method, key, secret, **kargs)
+            return call(method, key, secret, **kwargs)
         else:
             raise
 
     if data['status'] == 'FAILED':
-        raise error.CodeforcesAPIError(data['comment'], method, kargs)
+        raise error.CodeforcesAPIError(data['comment'], method, kwargs)
 
     return data['result']
