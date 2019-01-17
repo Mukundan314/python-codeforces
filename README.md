@@ -1,6 +1,7 @@
 # python-codeforces
 
 [![Documentation Status](https://readthedocs.org/projects/python-codeforces/badge/?version=latest)](https://python-codeforces.readthedocs.io/en/latest/?badge=latest)
+[![Build Status](https://travis-ci.com/Mukundan314/python-codeforces.svg?branch=master)](https://travis-ci.com/Mukundan314/python-codeforces)
 
 Codeforces API wrapper for python
 
@@ -36,7 +37,7 @@ cf-run [contestId] [index] [program]
 
 Example:
 
-```shell
+```
 $ gcc a.c -o ./out
 $ cf-run 1100 A ./out
 A. Roman and Browser
