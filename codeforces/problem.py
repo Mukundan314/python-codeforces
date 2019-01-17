@@ -1,6 +1,7 @@
 import os
-import urllib.request
 import urllib.error
+import urllib.request
+
 from bs4 import BeautifulSoup
 
 __all__ = ['get_info']

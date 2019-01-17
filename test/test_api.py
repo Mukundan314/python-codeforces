@@ -1,5 +1,6 @@
-import pytest
 import codeforces
+import pytest
+
 
 class TestCall(object):
     def test_undefined_method(self):

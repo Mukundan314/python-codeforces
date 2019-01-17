@@ -1,5 +1,6 @@
-import pytest
 import codeforces
+import pytest
+
 
 class TestGetInfo(object):
     def test_normal_problem(self):
