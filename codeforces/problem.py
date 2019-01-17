@@ -47,8 +47,8 @@ def get_info(contest_id, index, lang='en'):
     time_limit = soup.find_all("div", class_="time-limit")[0].text[19:]
     memory_limit = soup.find_all("div", class_="memory-limit")[0].text[21:]
 
-    i = [i.pre.string[1:] for i in soup.find_all("div", class_="input")]
-    o = [i.pre.string[1:] for i in soup.find_all("div", class_="output")]
+    i = [i.pre.text.lstrip('\n') for i in soup.find_all("div", class_="input")]
+    o = [i.pre.text.lstrip('\n') for i in soup.find_all("div", class_="output")]
 
     sample_tests = zip(i, o)
 
