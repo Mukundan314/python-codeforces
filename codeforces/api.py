@@ -16,7 +16,7 @@ __all__ = ['call']
 CODEFORCES_API_URL = "https://codeforces.com/api/"
 
 
-def generate_api_sig(method, args, secret):
+def _generate_api_sig(method, args, secret):
     rand = "%06d" % random.randint(0, 999999)
     url_args = urllib.parse.urlencode(sorted(args.items()))
     return rand + hashlib.sha512(
@@ -51,7 +51,7 @@ def call(method, key=None, secret=None, **kwargs):
     if (key is not None) and (secret is not None):
         args['time'] = int(time.time())
         args['apiKey'] = key
-        args['apiSig'] = generate_api_sig(method, args, secret)
+        args['apiSig'] = _generate_api_sig(method, args, secret)
 
     url_args = urllib.parse.urlencode(args)
     url = os.path.join(CODEFORCES_API_URL, "%s?%s" % (method, url_args))
