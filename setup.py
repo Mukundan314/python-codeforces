@@ -24,7 +24,7 @@ setup(
     license='MIT',
     packages=find_packages(exclude=['docs']),
     install_requires=['bs4', 'colorama'],
-    extras_requires={ 'docs': ['sphinx', 'sphinx_rtd_theme'] },
+    extras_requires={'docs': ['sphinx', 'sphinx_rtd_theme']},
     scripts=['bin/cf-run'],
     python_requires='>=3.6,<4',
     project_urls={

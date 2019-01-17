@@ -1,6 +1,4 @@
-"""
-Functions to call the codeforces api
-"""
+"""Functions to call the codeforces api."""
 import hashlib
 import json
 import os
@@ -18,7 +16,7 @@ __all__ = ['call']
 CODEFORCES_API_URL = "https://codeforces.com/api/"
 
 
-def __generate_api_sig(method, args, secret):
+def generate_api_sig(method, args, secret):
     rand = "%06d" % random.randint(0, 999999)
     url_args = urllib.parse.urlencode(sorted(args.items()))
     return rand + hashlib.sha512(
@@ -28,7 +26,7 @@ def __generate_api_sig(method, args, secret):
 
 def call(method, key=None, secret=None, **kwargs):
     """
-    Call a Codeforces API method
+    Call a Codeforces API method.
 
     Parameters
     ----------
@@ -46,13 +44,14 @@ def call(method, key=None, secret=None, **kwargs):
     -------
     any
         A python object containing the results of the api call.
+
     """
     args = kwargs.copy()
 
     if (key is not None) and (secret is not None):
         args['time'] = int(time.time())
         args['apiKey'] = key
-        args['apiSig'] = __generate_api_sig(method, args, secret)
+        args['apiSig'] = generate_api_sig(method, args, secret)
 
     url_args = urllib.parse.urlencode(args)
     url = os.path.join(CODEFORCES_API_URL, "%s?%s" % (method, url_args))

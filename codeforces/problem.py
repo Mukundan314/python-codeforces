@@ -1,3 +1,4 @@
+"""Functions to info about a problem."""
 import os
 import urllib.error
 import urllib.request
@@ -33,8 +34,8 @@ def get_info(contest_id, index, lang='en'):
         Memory limit specification for the problem.
     sample_tests: zip
         Sample tests given for the problem.
-    """
 
+    """
     problem_url = os.path.join(
         CODEFORCES_URL,
         "contest/%d/problem/%s?lang=%s" % (contest_id, index, lang)
