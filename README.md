@@ -1,13 +1,27 @@
-# python-codeforces
 
-[![Documentation Status](https://readthedocs.org/projects/python-codeforces/badge/?version=latest)](https://python-codeforces.readthedocs.io/en/latest/?badge=latest)
-[![Build Status](https://travis-ci.com/Mukundan314/python-codeforces.svg?branch=master)](https://travis-ci.com/Mukundan314/python-codeforces)
-[![Supported Python
-versions](https://img.shields.io/pypi/pyversions/python-codeforces.svg)](https://pypi.org/project/tox/)
+<h1 align="center"> python-codeforces</h1>
 
-Codeforces API wrapper for python
+<div align="center">
+  <strong>Codeforces API wrapper for python</strong>
+</div>
 
-## Installation
+<br />
+
+<div align="center">
+  <a href="https://python-codeforces.readthedocs.io/en/latest/?badge=latest">
+    <img alt="Documentation Status" src="https://readthedocs.org/projects/python-codeforces/badge/?version=latest" />
+  </a>
+  <a href="https://travis-ci.com/Mukundan314/python-codeforces">
+    <img alt="Build Status" src="https://travis-ci.com/Mukundan314/python-codeforces.svg?branch=master" />
+  </a>
+  <a href="https://pypi.org/project/python-codeforces/">
+    <img alt="Supported Python versions" src="https://img.shields.io/pypi/pyversions/python-codeforces.svg" />
+  </a>
+</div>
+
+---
+
+### Installation
 
 #### Using `pip`
 
@@ -31,7 +45,7 @@ cd python-codeforces
 pip install -e .
 ```
 
-## Using `cf-run`
+### Using `cf-run`
 
 ```shell
 cf-run [contestId] [index] [program]
@@ -46,7 +60,7 @@ A. Roman and Browser
 time limit per test: 1 second
 memory limit per test: 256 megabytes
 
--------------------------------------------------------------------------------- 
+--------------------------------------------------------------------------------
 
 Time: 16 ms
 
@@ -60,7 +74,7 @@ Participant's output
 Jury's answer
 2
 
--------------------------------------------------------------------------------- 
+--------------------------------------------------------------------------------
 
 Time: 19 ms
 
@@ -75,10 +89,10 @@ Jury's answer
 9
 ```
 
-## Documentation
+### Documentation
 
 Documentation can be found at https://python-codeforces.readthedocs.io/en/latest/
 
-## License
+### License
 
 See [LICENSE](LICENSE).
