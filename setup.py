@@ -23,7 +23,7 @@ setup(
     author_email='mukundan314@gmail.com',
     license='MIT',
     packages=find_packages(exclude=['docs']),
-    install_requires=['bs4', 'colorama'],
+    install_requires=['beautifulsoup4', 'colorama'],
     extras_requires={'docs': ['sphinx', 'sphinx_rtd_theme']},
     scripts=['bin/cf-run'],
     python_requires='>=3.6,<4',
