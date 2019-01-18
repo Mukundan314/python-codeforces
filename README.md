@@ -2,6 +2,8 @@
 
 [![Documentation Status](https://readthedocs.org/projects/python-codeforces/badge/?version=latest)](https://python-codeforces.readthedocs.io/en/latest/?badge=latest)
 [![Build Status](https://travis-ci.com/Mukundan314/python-codeforces.svg?branch=master)](https://travis-ci.com/Mukundan314/python-codeforces)
+[![Supported Python
+versions](https://img.shields.io/pypi/pyversions/python-codeforces.svg)](https://pypi.org/project/tox/)
 
 Codeforces API wrapper for python
 
