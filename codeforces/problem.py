@@ -59,11 +59,11 @@ def get_info(contest_id, index, gym=False, lang='en'):
     memory_limit = soup.find_all("div", class_="memory-limit")[0].text[21:]
 
     inputs = [
-        i.pre.text.lstrip('\n') for i in soup.find_all("div", class_="input")
+        i.pre.get_text('\n') for i in soup.find_all("div", class_="input")
     ]
 
     outputs = [
-        i.pre.text.lstrip('\n') for i in soup.find_all("div", class_="output")
+        i.pre.get_text('\n') for i in soup.find_all("div", class_="output")
     ]
 
     sample_tests = zip(inputs, outputs)
