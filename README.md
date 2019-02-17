@@ -48,7 +48,22 @@ pip install -e .
 ### Using `cf-run`
 
 ```shell
-cf-run [contestId] [index] [program]
+usage: cf-run [-h] [-t TIMEOUT] [-g] contestId index program
+
+positional arguments:
+  contestId             Id of the contest. It is not the round number. It can
+                        be seen in contest URL.
+  index                 A letter or a letter followed by a digit, that
+                        represent a problem index in a contest.
+  program               Path to executable that needs to be tested
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -t TIMEOUT, --timeout TIMEOUT
+                        Timeout for program in seconds, -1 for no time limit
+                        (default: 10)
+  -g, --gym             If true open gym contest instead of regular contest.
+                        (default: false)
 ```
 
 Example:
