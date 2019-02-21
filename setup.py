@@ -25,7 +25,9 @@ setup(
     packages=find_packages(exclude=['docs']),
     install_requires=['beautifulsoup4', 'colorama'],
     extras_requires={'docs': ['sphinx', 'sphinx_rtd_theme']},
-    scripts=['bin/cf-run'],
+    entry_points={
+        'console_scripts': ['cf-run = codeforces.cf_run:main']
+    },
     python_requires='>=3.6,<4',
     project_urls={
         "Bug Tracker": "https://github.com/Mukundan314/python-codeforces/issues/",
