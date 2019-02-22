@@ -1,7 +1,6 @@
 """Functions to call the codeforces api."""
 import hashlib
 import json
-import os
 import secrets
 import time
 import urllib.parse
@@ -53,7 +52,7 @@ def call(method, key=None, secret=None, **kwargs):
         params['apiKey'] = key
         params['apiSig'] = _generate_api_sig(method, params, secret)
 
-    url = os.path.join(CODEFORCES_API_URL, "%s" % method)
+    url = urllib.parse.urljoin(CODEFORCES_API_URL, "%s" % method)
 
     with requests.get(url, params=params) as res:
         if res.status_code == 404:

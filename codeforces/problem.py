@@ -1,5 +1,5 @@
 """Functions to info about a problem."""
-import os
+import urllib.parse
 
 import requests
 from bs4 import BeautifulSoup
@@ -39,12 +39,12 @@ def get_info(contest_id, index, gym=False, lang='en'):
 
     """
     if gym:
-        problem_url = os.path.join(
+        problem_url = urllib.parse.urljoin(
             CODEFORCES_URL,
             "gym/%d/problem/%s" % (contest_id, index)
         )
     else:
-        problem_url = os.path.join(
+        problem_url = urllib.parse.urljoin(
             CODEFORCES_URL,
             "contest/%d/problem/%s" % (contest_id, index)
         )
