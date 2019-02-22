@@ -23,7 +23,7 @@ setup(
     author_email='mukundan314@gmail.com',
     license='MIT',
     packages=find_packages(exclude=['docs']),
-    install_requires=['beautifulsoup4', 'colorama'],
+    install_requires=['beautifulsoup4', 'colorama', 'requests'],
     extras_requires={'docs': ['sphinx', 'sphinx_rtd_theme']},
     entry_points={
         'console_scripts': ['cf-run = codeforces.cf_run:main']
