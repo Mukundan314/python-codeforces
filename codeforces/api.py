@@ -2,7 +2,7 @@
 import hashlib
 import json
 import os
-import random
+import secrets
 import time
 import urllib.error
 import urllib.parse
@@ -17,7 +17,7 @@ CODEFORCES_API_URL = "https://codeforces.com/api/"
 
 
 def _generate_api_sig(method, args, secret):
-    rand = "%06d" % random.randint(0, 999999)
+    rand = "%06d" % secrets.randbelow(999999)
     url_args = urllib.parse.urlencode(sorted(args.items()))
     return rand + hashlib.sha512(
         ("%s/%s?%s#%s" % (rand, method, url_args, secret)).encode('utf-8')
