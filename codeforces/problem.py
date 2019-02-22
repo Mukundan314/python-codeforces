@@ -1,8 +1,7 @@
 """Functions to info about a problem."""
 import os
-import urllib.error
-import urllib.request
 
+import requests
 from bs4 import BeautifulSoup
 
 __all__ = ['get_info']
@@ -42,16 +41,16 @@ def get_info(contest_id, index, gym=False, lang='en'):
     if gym:
         problem_url = os.path.join(
             CODEFORCES_URL,
-            "gym/%d/problem/%s?lang=%s" % (contest_id, index, lang)
+            "gym/%d/problem/%s" % (contest_id, index)
         )
     else:
         problem_url = os.path.join(
             CODEFORCES_URL,
-            "contest/%d/problem/%s?lang=%s" % (contest_id, index, lang)
+            "contest/%d/problem/%s" % (contest_id, index)
         )
 
-    with urllib.request.urlopen(problem_url) as res:
-        soup = BeautifulSoup(res.read(), 'html.parser')
+    with requests.get(problem_url, params={'lang': lang}) as res:
+        soup = BeautifulSoup(res.text, 'html.parser')
 
     title = soup.find_all("div", class_="title")[0].text
 
