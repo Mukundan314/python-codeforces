@@ -45,7 +45,11 @@ cd python-codeforces
 pip install -e .
 ```
 
-### Using `cf-run`
+### Commandline tools
+
+#### `cf-run`
+
+Run a program against sample testcases.
 
 ```shell
 usage: cf-run [-h] [-t TIMEOUT] [-g] contestId index program
@@ -64,44 +68,6 @@ optional arguments:
                         (default: 10)
   -g, --gym             If true open gym contest instead of regular contest.
                         (default: false)
-```
-
-Example:
-
-```
-$ gcc a.c -o ./out
-$ cf-run 1100 A ./out
-A. Roman and Browser
-time limit per test: 1 second
-memory limit per test: 256 megabytes
-
---------------------------------------------------------------------------------
-
-Time: 16 ms
-
-Input
-4 2
-1 1 -1 1
-
-Participant's output
-2
-
-Jury's answer
-2
-
---------------------------------------------------------------------------------
-
-Time: 19 ms
-
-Input
-14 3
--1 1 -1 -1 1 -1 -1 1 -1 -1 1 -1 -1 1
-
-Participant's output
-9
-
-Jury's answer
-9
 ```
 
 ### Documentation
