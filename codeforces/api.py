@@ -4,9 +4,9 @@ import json
 import os
 import secrets
 import time
-import urllib.error
 import urllib.parse
-import urllib.request
+
+import requests
 
 from . import error
 
@@ -46,32 +46,26 @@ def call(method, key=None, secret=None, **kwargs):
         A python object containing the results of the api call.
 
     """
-    args = kwargs.copy()
+    params = kwargs.copy()
 
     if (key is not None) and (secret is not None):
-        args['time'] = int(time.time())
-        args['apiKey'] = key
-        args['apiSig'] = _generate_api_sig(method, args, secret)
+        params['time'] = int(time.time())
+        params['apiKey'] = key
+        params['apiSig'] = _generate_api_sig(method, params, secret)
 
-    url_args = urllib.parse.urlencode(args)
-    url = os.path.join(CODEFORCES_API_URL, "%s?%s" % (method, url_args))
+    url = os.path.join(CODEFORCES_API_URL, "%s" % method)
 
-    try:
-        with urllib.request.urlopen(url) as res:
-            data = json.loads(res.read().decode('utf-8'))
-    except urllib.error.HTTPError as err:
-        if err.code == 400:
-            data = json.loads(err.read())
-        elif err.code == 404:
+    with requests.get(url, params=params) as res:
+        if res.status_code == 404:
             data = {
                 'status': 'FAILED',
                 'comment': "%s: No such method" % method
             }
-        elif err.code in (429, 503):
+        elif res.status_code in (429, 503):
             time.sleep(1)
             return call(method, key, secret, **kwargs)
         else:
-            raise
+            data = json.loads(res.text)
 
     if data['status'] == 'FAILED':
         raise error.CodeforcesAPIError(data['comment'], method, kwargs)
