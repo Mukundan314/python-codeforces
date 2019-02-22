@@ -54,6 +54,7 @@ def main(argv=None):
 
         out = subprocess.run(
             args.program,
+            shell=True,
             input=inp.encode('utf-8'),
             capture_output=True,
             timeout=args.timeout
