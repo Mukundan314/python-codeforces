@@ -6,7 +6,7 @@ import time
 
 import colorama
 
-import codeforces
+from . import problem
 
 colorama.init(autoreset=True)
 
@@ -39,7 +39,7 @@ def main(argv=None):
 
     args.timeout = None if args.timeout == -1 else args.timeout
 
-    title, time_limit, memory_limit, sample_tests = codeforces.problem.get_info(
+    title, time_limit, memory_limit, sample_tests = problem.get_info(
         args.contestId, args.index, gym=args.gym
     )
 
