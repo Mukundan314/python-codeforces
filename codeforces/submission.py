@@ -26,9 +26,10 @@ def get_submission(submission_id):
         csrf_token = soup.find('meta', attrs={'name': 'X-Csrf-Token'})['content']
 
         res = sess.post(
-            'https://codeforces.com/data/submitSource',
-            {'submissionId': submission_id, 'csrf_token': csrf_token},
-            headers={'X-Csrf-Token': csrf_token}
-        )
+            'https://codeforces.com/data/submitSource', {
+                'submissionId': submission_id,
+                'csrf_token': csrf_token
+            },
+            headers={'X-Csrf-Token': csrf_token})
 
     return json.loads(res.text)['source']

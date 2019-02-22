@@ -17,37 +17,27 @@ def main(argv=None):
     parser = argparse.ArgumentParser()
 
     parser.add_argument(
-        'contestId',
-        type=int,
-        help=
-        "Id of the contest. It is not the round number. It can be seen in contest URL."
-    )
+        'contestId', type=int, help="Id of the contest. It is not the round number. It can be seen in contest URL.")
 
     parser.add_argument(
         'index',
         type=str,
-        help=
-        "A letter or a letter followed by a digit, that represent a problem index in a contest."
-    )
+        help="A letter or a letter followed by a digit, that represent a problem index in a contest.")
 
-    parser.add_argument(
-        'program', type=str, help="Path to executable that needs to be tested")
+    parser.add_argument('program', type=str, help="Path to executable that needs to be tested")
 
     parser.add_argument(
         '-t',
         '--timeout',
         type=int,
         default=10,
-        help=
-        "Timeout for program in seconds, -1 for no time limit (default: 10)")
+        help="Timeout for program in seconds, -1 for no time limit (default: 10)")
 
     parser.add_argument(
         '-g',
         '--gym',
         action='store_true',
-        help=
-        "If true open gym contest instead of regular contest. (default: false)"
-    )
+        help="If true open gym contest instead of regular contest. (default: false)")
 
     if argv:
         args = parser.parse_args(argv)
@@ -56,8 +46,7 @@ def main(argv=None):
 
     args.timeout = None if args.timeout == -1 else args.timeout
 
-    title, time_limit, memory_limit, sample_tests = problem.get_info(
-        args.contestId, args.index, gym=args.gym)
+    title, time_limit, memory_limit, sample_tests = problem.get_info(args.contestId, args.index, gym=args.gym)
 
     print(title)
     print("time limit per test:", time_limit)

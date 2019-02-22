@@ -39,15 +39,9 @@ def get_info(contest_id, index, gym=False, lang='en'):
 
     """
     if gym:
-        problem_url = urllib.parse.urljoin(
-            CODEFORCES_URL,
-            "gym/%d/problem/%s" % (contest_id, index)
-        )
+        problem_url = urllib.parse.urljoin(CODEFORCES_URL, "gym/%d/problem/%s" % (contest_id, index))
     else:
-        problem_url = urllib.parse.urljoin(
-            CODEFORCES_URL,
-            "contest/%d/problem/%s" % (contest_id, index)
-        )
+        problem_url = urllib.parse.urljoin(CODEFORCES_URL, "contest/%d/problem/%s" % (contest_id, index))
 
     with requests.get(problem_url, params={'lang': lang}) as res:
         soup = BeautifulSoup(res.text, 'html.parser')
@@ -57,13 +51,9 @@ def get_info(contest_id, index, gym=False, lang='en'):
     time_limit = soup.find_all("div", class_="time-limit")[0].text[19:]
     memory_limit = soup.find_all("div", class_="memory-limit")[0].text[21:]
 
-    inputs = [
-        i.pre.get_text('\n').lstrip('\n') for i in soup.find_all("div", class_="input")
-    ]
+    inputs = [i.pre.get_text('\n').lstrip('\n') for i in soup.find_all("div", class_="input")]
 
-    outputs = [
-        i.pre.get_text('\n') for i in soup.find_all("div", class_="output")
-    ]
+    outputs = [i.pre.get_text('\n').lstrip('\n') for i in soup.find_all("div", class_="output")]
 
     sample_tests = zip(inputs, outputs)
 
